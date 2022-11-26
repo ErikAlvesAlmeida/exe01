@@ -1,7 +1,6 @@
 {
   "name": "exe01",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,4 +16,5 @@
     "express-session": "^1.17.3",
     "mongoose": "^6.6.1"
   }
+  "description": ""
 }
