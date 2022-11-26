@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pessoas</title>
+    <%- include("../partials/cabecalho.ejs")%> 
+</head>
+<body>
+    <div class="container">
+        <br>
+        <div>
+            <a href="/pessoas/cadastro" class="btn btn-success">Cadastrar uma nova pessoa</a>
+        </div>   
+        <br>
+    <div>
+        <%if(salvo != undefined){%>
+            <div class="alert alert-success" role="alert">
+                <h4 style="color: green;">
+                Pessoa cadastrada com sucesso!
+                </h4>
+            </div>
+        <% }%>  
+
+        <%if(deletado != undefined){%>
+            <div class="alert alert-danger" role="alert">
+                <h4 style="color: red;">
+                Pessoa deletada com sucesso!
+                </h4>
+            </div>
+        <% }%>  
+
+        <%if(atualizar != undefined){%>
+            <div class="alert alert-primary" role="alert">
+                <h4 style="color: blue;">
+                Pessoa atualizada com sucesso!
+                </h4>
+            </div>
+        <% }%>  
+
+        <%if(existe != undefined){%>
+            <div class="alert alert-danger" role="alert">
+                <h4 style="color: orangered;">
+                Código já está sendo utilizado.
+                </h4>
+            </div>
+        <% }%>  
+
+        <table class="table table-striped">
+            <tr>
+                <th>Nome</th>
+                <th>#</th>
+                <th>#</th>
+                <th>#</th>
+            </tr>
+        <%for(const element of pessoas){ 
+        %>
+            <tr>
+                <td><%= element.nome%></td>
+                <td><a href="/pessoas/<%= element.codigo%>" class="btn btn-info">Detalhar</a></td>           
+                <td><a href="/pessoas/<%= element.codigo%>/deletar" onclick="return confirm('Deseja realmente remover?')" class="btn btn-danger">Deletar</a></td> 
+                <td><a href="/pessoas/<%= element.codigo%>/atualizar" class="btn btn-warning">Atualizar</a></td> 
+            </tr>
+        <%}%>
+        </table>
+        
+    </div>
+    <%- include("../partials/footer.ejs")%> 
+</div>
+</body>
+</html>

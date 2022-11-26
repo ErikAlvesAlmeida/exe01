@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atualizar</title>
+    <%- include("../partials/cabecalho.ejs")%> 
+</head>
+<body>
+    <div class="container">
+    <div>
+        <h3>Atualizar pessoa</h3>
+    </div>
+    <form action="/pessoas/<%= pessoa.codigo%>/atualizar" method="post">
+        <input type="hidden" name="codigo" value="<%= pessoa.codigo %>">
+        <div class="mb-3">
+            <label class="form-label">Novo nome:</label>
+            <input required type="text" class="form-control" name="nome" value="<%= pessoa.nome %>">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Nova idade:</label>
+            <input required type="text" class="form-control" name="idade" value="<%= pessoa.idade %>">
+        </div>
+        <button type="submit" class="btn btn-primary">Atualizar</button>
+    </form>
+    <%- include("../partials/footer.ejs")%> 
+</div>
+</body>
+</html>
